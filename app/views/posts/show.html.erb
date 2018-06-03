@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="show.scss">
+		<title>投稿詳細</title>
+	</head>
+	<body>
+		<div class="show-wrapper">
+			<h1 class="show-title">投稿詳細</h1>
+			<div class="show-container">
+				<h4>書籍名: <%= @post.title %></h4>
+				<h4>書評: <%= @post.body %></h4>
+			</div>
+			<div class="from-show-links">
+				<%= link_to "編集", edit_post_path(@post.id),:style=>"color:orange;" %>
+				|
+				<%= link_to "戻る", index_path,:style=>"color:orange;" %>
+			</div>
+		</div>
+	</body>
+</html>

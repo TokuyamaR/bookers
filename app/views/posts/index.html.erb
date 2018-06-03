@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="posts.scss">
+		<title>Booksリスト</title>
+	</head>
+	<body>
+		<div class="posts-wrapper">
+			<div class="posts-index">
+				<h1 class="index-title">Books リスト</h1>
+				<div class="index-container">
+					<table width="80%">
+					  <thead>
+						<tr>
+						 	<th>書籍名</th>
+							<th>書評（本文）</th>
+						</tr>
+					  </thead>
+					  <% @posts.each do |post| %>
+					  <tbody link="black">
+						 	<tr>
+						 		<td><%= post.title %></td>
+								<td><%= post.body %></td>
+								<div class="to-otherpage-link">
+									<td><%= link_to "詳細", post_path(post.id),:style=>"color:orange;" %></td>
+									<td><%= link_to "編集", edit_post_path(post.id),:style=>"color:orange;" %></td>
+									<td><%= link_to "削除", destroy_post_path(post.id),:style=>"color:orange;", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+								</div>
+							</tr>
+					  </tbody>
+					  <% end %>
+					</table>
+				</div>
+			</div>
+			<div class="posts-new">
+				<h1 class="new-title">オススメの本を投稿する</h1>
+				<%= form_for(@post) do |f| %>
+					<div class="book-title">
+						<h4>書籍名</h4>
+						<%= f.text_field :title %>
+					</div>
+					<div class="book-about">
+						<h4>書評（本文）</h4>
+						<%= f.text_area :body %>
+					</div>
+					<%= f.submit "投稿" %>
+				<% end %>
+			</div>
+		</div>
+	</body>
+</html>
