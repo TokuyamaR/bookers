@@ -13,19 +13,19 @@
 				<%= form_for(@post) do |f| %>
 					<div class="book-title">
 						<h4>書籍名</h4>
-						<%= f.text_field :title %>
+						<%= f.text_field :title, class: "book_title" %>
 					</div>
 					<div class="book-about">
 						<h4>書評（本文）</h4>
-						<%= f.text_area :body %>
+						<%= f.text_area :body, class: "book_body" %>
 					</div>
 					<%= f.submit '更新' %>
 				<% end %>
 			</div>
 			<div class="from-edit-links">
-				<%= link_to "詳細", post_path(@post.id),:style=>"color:orange;" %>
+				<%= link_to "詳細", post_path(@post.id),:style=>"color:orange;", class: "show_#{@post.id}" %>
 				|
-				<%= link_to "戻る", index_path,:style=>"color:orange;" %>
+				<%= link_to "戻る", index_path,:style=>"color:orange;", class: "back" %>
 			</div>
 		</div>
 	</body>

@@ -14,9 +14,9 @@
 				<h4>書評: <%= @post.body %></h4>
 			</div>
 			<div class="from-show-links">
-				<%= link_to "編集", edit_post_path(@post.id),:style=>"color:orange;" %>
+				<%= link_to "編集", edit_post_path(@post.id),:style=>"color:orange;", class: "edit_#{@post.id}" %>
 				|
-				<%= link_to "戻る", index_path,:style=>"color:orange;" %>
+				<%= link_to "戻る", index_path,:style=>"color:orange;", class: "back" %>
 			</div>
 		</div>
 	</body>

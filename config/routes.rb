@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#top'
   get 'posts/index' => 'posts#index', as:'index'
   post 'posts/create' => 'posts#create', as: 'posts'
   get 'posts/:id' => 'posts#show', as: 'post'
